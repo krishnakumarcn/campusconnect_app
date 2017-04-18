@@ -1,0 +1,61 @@
+  
+
+<ion-side-menus>
+    <ion-side-menu-content>
+       <ion-nav-bar class="bar-positive-900" ng-class="{expanded: isExpanded, 'has-header-fab-left': hasHeaderFabLeft, 'has-header-fab-right': hasHeaderFabRight}" align-title="left">
+            <ion-nav-back-button class="no-text">
+            </ion-nav-back-button>
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-android-menu" menu-toggle="right">
+                </button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-nav-view name="fabContent"></ion-nav-view>
+        <ion-nav-view name="menuContent" ng-class="{expanded: isExpanded}" ></ion-nav-view>
+    </ion-side-menu-content>
+    <ion-side-menu side="left">
+        <ion-header-bar  style="background: url('img/cetlogo.png'); background-size:cover;" class="dark-bg expanded">
+        </ion-header-bar>
+        <ion-content class="has-expanded-header ">   
+            <div class="list">
+                <a menu-close class="item item-icon-left" href="#/app/broadcast" style="color:#c51162;">
+                    <i class="icon ion-android-textsms"></i>
+                    <h2>Broadcasts</h3>
+                    <span class="badge badge-positive">new</span>
+                </a>
+                <a menu-close  class="item item-icon-left" href="#/app/channels" style="color:#c51162;">
+                    <i class="icon ion-android-menu"></i>
+                    <h2>Channels</h2>
+                </a>
+                <a menu-close  class="item item-icon-left" href="#/app/sendBroadcast" style="color:#c51162;">
+                    <i class="icon ion-paper-airplane"></i>
+                    <h2>Send Broadcasts</h2>
+                </a>
+                <a menu-close  class="item item-icon-left  item-icon-right" href="#/app/incomingRequests" style="color:#c51162;">
+                    <i class="icon ion-android-notifications"></i>
+                    <h2>Requests</h2>
+                    <span class="badge badge-positive">0</span>
+                </a>
+                <a menu-close  class="item item-icon-left" href="#/app/settings" style="color:#c51162;">
+                    <i class="icon ion-android-settings"></i>
+                    <h2>Settings</h2>
+                </a>
+            </div>   
+        <!--    <ion-item-divider></ion-item-divider>
+                <ion-list-header style="padding-left: 16px;color:black">Messages</ion-list-header>
+            -->
+            <div class="list">
+                <a menu-close  class="item item-icon-left" href="#/app/inbox" style="color:#c51162;">
+                <i class="icon ion-android-mail"></i>
+                <h2>Messaging</h2>
+                </a>
+            </div>
+        </ion-content>
+         <ion-footer-bar>
+            <a nav-clear menu-close class="item item-icon-left" href="#/app/profile" style="left:0;right:0;margin:0; width: 100%;position: fixed;color:#c51162;">
+                <i class="icon ion-android-person"></i>
+                <h2>{{currentUser.name}}</h2>
+            </a>
+        </ion-footer-bar>
+    </ion-side-menu>
+</ion-side-menus>

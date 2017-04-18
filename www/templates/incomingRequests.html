@@ -1,0 +1,36 @@
+<ion-view view-title="Requests">
+   <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button  button-clear button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content>
+       <div ng-show="requestCollection.length===0" style="text-align: center;"><h3>No Requests for you</h3></div>
+            <div class="list card light-bg" ng-repeat="request in requestCollection">
+                <div class="item item-avatar" >
+                    <img src="img/ionic.png">
+                    <div>
+                      <h2 style="float: left;">{{request.userName}}</h2>
+                      <span style="float: right;" class="badge badge-calm">{{request.channel}} Channel</span>
+                    </div>
+                    <br>
+                    <p style="clear: left">{{request.post}} {{request.department}}</p>
+                </div>
+                <div>
+                    <div>
+                        <div class="item item-divider">
+                            <h3>{{request.title}}</h3>
+                        </div>
+                        <div class="item item-text-wrap">
+                        {{request.message}}
+                        </div>
+                </div>
+                 <div class="col" style="text-align: right;">
+                            <button   class="button button-small button-positive"  ng-click="accept(request)" >
+                                Accept
+                            </button>
+                             <button  class="button button-flat button-small button-assertive  " ng-click="reject(request)">
+                                Reject
+                            </button>
+                        </div>
+              </div>
+  </ion-content>
+</ion-view>

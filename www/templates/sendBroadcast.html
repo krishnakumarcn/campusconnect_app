@@ -1,0 +1,48 @@
+<ion-view title="Send Broadcast">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon  button-clear icon ion-navicon"></button>
+  </ion-nav-buttons> 
+  
+
+   <ion-content>
+            
+
+                <div class="list">
+                  <div class="card" style="height: 70px;padding-top: 10px;padding-left: 17px;">
+                      <label>Channel: </label><br>
+                       <select style="width: 200px;" ng-change="channelSelected(channelName)" ng-model="channelName" class="ion-input-select">
+                       <option ng-repeat="channel in currentUser.subChannels" value="{{channel}}">{{channel}}</option>
+                  </select>
+                  </div>
+                 
+                 
+                  <div class="card" style="height: 70px;">
+                      <label class="item item-input item-stacked-label ">
+                        <span class="input-label">Title</span><br>
+                        <input placeholder="Title" ng-model="bForm.title" type="text" placeholder="Title">
+                      </label>
+                  </div>
+ 
+                  <div class="card" style="height: 200px;">
+                          <label class="item item-input item-stacked-label">
+                          <span class="input-label"> Message</span>
+                          <textarea placeholder="Type your message content here." ng-model="bForm.message" maxlength="1500" rows="18" select-on-focus></textarea>
+                          </label>
+                  </div>
+
+                <div class="row" style="text-align: right;" >
+                        <div class="col" style="">
+                            <button  ng-if="isAdmin" class="button  button-positive"  ng-click='send()'>
+                                Send
+                            </button>
+                             <button ng-if="!isAdmin" class="button button-flat  button-energized  " ng-click='request()'>
+                                Request
+                            </button>
+                             <button class="button button-flat  button-assertive"  ng-click='cancel()'>
+                                Cancel
+                            </button>
+                        </div>
+                      
+                    </div>
+  </ion-content>
+</ion-view>

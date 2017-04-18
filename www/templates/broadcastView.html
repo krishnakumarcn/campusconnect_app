@@ -1,0 +1,50 @@
+ <ion-view title="{{currentFilter}}">
+<ion-floating-button click="openModal()" has-footer="false" button-color="#f50057" icon="ion-android-menu" icon-color="#fff">
+</ion-floating-button>
+  <ion-content >
+    <div>
+       <div class="list card light-bg" ng-click="toggleBroad(broadcast)" ng-animate=" 'animate'" ng-repeat="broadcast in broadcastCollection">
+                <div class="item item-avatar" ng-class="{active: isBroadShown(broadcast)}">
+                    <img src="img/ionic.png">
+                    <div>
+                      <h2 style="float: left;">{{broadcast.userName}}</h2>
+                      <span style="float: right;" class="badge badge-positive">{{broadcast.channel}}</span>
+                    </div>
+                    <br>
+                    <p style="clear: left">{{broadcast.post}} {{broadcast.department}}</p>
+                </div>
+                <div>
+                    <div>
+                        <div style="padding-left: 17px;">
+                            <h5>{{broadcast.title}}</h5>
+                        </div>
+                        <div ng-bind="broadcast.message" ng-show="isBroadShown(broadcast)" style="white-space: pre-wrap;"  class="item item-text-wrap item-accordion">
+                        </div>
+                  </div>
+                </div>
+        </div>
+    </div>
+
+       <script id="my-modal.html" type="text/ng-template">
+         <ion-modal-view  class="light-bg">
+        <ion-header-bar ng-click="modal.hide()" class="bar bar-header bar-positive-900">
+            <h1 class="title" style="color:white;">Channel List</h1>
+            <div class="buttons">
+              <button ng-click="modal.hide()" class="button button-clear button-icon ion-android-close"></button>
+            </div>
+        </ion-header-bar>
+        <ion-content class="padding">
+          <ion-list>
+            <ion-item ng-click=channelSelectFunc(channel) ng-repeat="channel in channels" class="item item-icon-left">
+            <i class="icon ion-home"></i>
+              {{channel}}
+            </ion-item>
+          </ion-list>
+        </ion-content>
+      </ion-modal-view>
+        </script>
+
+  </ion-content>
+ 
+        
+ </ion-view>

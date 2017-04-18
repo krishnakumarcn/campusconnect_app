@@ -1,0 +1,109 @@
+<ion-view title="Inbox" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon  button-clear icon ion-navicon"></button>
+ </ion-nav-buttons> 
+  
+<style>
+            .myClass{
+                color:black !important;
+                background-color: #ec407a !important;
+            }
+        </style>
+
+<ion-floating-menu menu-color="#f50057" menu-open-color="#f50057">
+    <ion-floating-item button-color="#f50057" text="Compose" text-class="myClass" icon="ion-android-textsms" click="compose()"></ion-floating-item>
+    <ion-floating-item button-color="#f50057" text="Sent items" text-class="myClass" icon="ion-android-done" click="sentItems()"></ion-floating-item>
+</ion-floating-menu>
+
+<ion-content>
+    <div class="list card light-bg" ng-animate=" 'animate'" ng-repeat="message in messages">
+                <div class="item item-avatar" ng-class="{active: isMsgShown(message)}">
+                    <img src="img/ionic.png">
+                    <h2>{{message.senderName}}</h2>
+                    <p>"Joffrey. Cersei. Ilyn Payne. Hound. Polliver. The Mountain."</p>
+                </div>
+                 <div class="item tabs tabs-secondary tabs-icon-left" ng-click="reply()">
+                    <a class="tab-item" data-ink-color="#336699" data-ink-opacity="0.5">
+                        <i class="icon ion-thumbsup"></i> Reply
+                    </a>
+                    <a class="tab-item" data-ink-color="#336699" data-ink-opacity="0.5">
+                        <i class="icon ion-android-share"></i> Forward
+                    </a>
+                    <a ng-click="delete(message.id)" class="tab-item" data-ink-color="#336699" data-ink-opacity="0.5">
+                        <i class="icon ion-android-delete"></i> Delete
+                    </a>
+                </div>
+                <div class="item item-body"  ng-click="toggleMessage(message)">
+                    <div>
+                        <div style="padding-left: 17px;">
+                            <h3>{{message.subject}}</h3>
+                        </div>
+                        <div ng-bind="message.message" ng-show="isMsgShown(message)" style="white-space: pre-wrap;"  class="item item-text-wrap item-accordion">
+                        </div>
+                </div>
+                </div>
+               
+            </div>
+          
+
+<!--
+     <ion-list>
+        <ion-item ng-repeat="message in messages" class="item-icon-left item-remove-animate">
+          <div ng-click="showMessage(message)">
+            <i class="icon ion-android-person avatar"></i>
+            <h3>{{message.senderName}}</h3>
+            <p style="color: darkgrey;">{{message.subject}}</p>	
+          </div> 
+        </ion-item>
+    </ion-list>
+
+    <script id="show-message.html" type="text/ng-template">
+      <ion-modal-view class="light-bg">
+        <ion-header-bar ng-click="modal.hide()" class="bar bar-header bar-positive-900">
+            <h1 class="title" style="color:white;">{{currentMessage.senderName}}</h1>
+            <div class="buttons">
+              <button ng-click="modal.hide()" class="button button-clear button-icon ion-android-close"></button>
+            </div>
+        </ion-header-bar>
+
+        <ion-content class="padding">
+           <div layout="column" class="md-dialog-content">
+            <h2>{{currentMessage.subject}}</h2>
+            <p>{{currentMessage.message}}</p>
+          </div>
+
+           <div class="list card stable-bg">
+                <div class="item item-avatar">
+                    <img src="img/ionic.png">
+                    <h2>{{currentMessage.senderName}}</h2>
+                    <p>"Joffrey. Cersei. Ilyn Payne. Hound. Polliver. The Mountain."</p>
+                </div>
+                <div class="item item-body">
+                  {{currentMessage.message}}
+                    <p>
+                        <a class="subdued">1 Like</a>
+                        <a class="subdued">5 Comments</a>
+                    </p>
+                </div>
+                <div class="item tabs tabs-secondary tabs-icon-left">
+                    <a class="tab-item" data-ink-color="#336699" data-ink-opacity="0.5">
+                        <i class="icon ion-thumbsup"></i> Reply
+                    </a>
+                    <a class="tab-item" data-ink-color="#336699" data-ink-opacity="0.5">
+                        <i class="icon ion-chatbox"></i> Delete
+                    </a>
+                    <a class="tab-item" data-ink-color="#336699" data-ink-opacity="0.5">
+                        <i class="icon ion-share"></i> Archive
+                    </a>
+                </div>
+            </div>
+
+        </ion-content>
+      </ion-modal-view>
+    </script>
+    
+
+-->
+
+</ion-content>
+</ion-view>

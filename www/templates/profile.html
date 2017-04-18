@@ -1,0 +1,38 @@
+<ion-view view-title="{{currentUser.name}}">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon button-clear icon ion-navicon"></button>
+  </ion-nav-buttons> 
+  <ion-content>
+     <!--
+'userId':user.userId,
+			'name':user.name, 
+			'department':user.department,
+			'post':user.post,
+			'adminOf':user.adminOf,
+			'subChannels':user.subChannels,
+    -->
+    <div class="list card">
+        <ion-item class="profile-item">
+          <div class="profile-picture big-profile-picture">
+            <img src="{{user.icon}}">
+          </div>
+          <div class="text-center">
+            <h2 class="profile-name dark">{{currentUser.name}}</h2>
+            <div class="profile-info">{{currentUser.post}} {{currentUser.department}}</div>
+          </div>
+        </ion-item>
+        
+            <div class="list card light-bg" ng-click="toggleBroad()" ng-animate=" 'animate'" >
+                  <div ng-class="{active: isBroadShown()}">
+                  Update Password</div>
+                  <div ng-show="isBroadShown()" style="white-space: pre-wrap;"  class="item item-text-wrap item-accordion">
+                  New Password</div>
+          </div>
+        <ion-item class="profile-item">
+          <button class="button button-block button-assertive" ng-click="logIn()">
+            Logout
+          </button>
+        </ion-item>
+      </div>
+  </ion-content>
+</ion-view>
