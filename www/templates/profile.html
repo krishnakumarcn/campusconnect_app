@@ -1,9 +1,9 @@
 <ion-view view-title="{{currentUser.name}}">
-  <ion-nav-buttons side="left">
-    <button menu-toggle="left" class="button button-icon button-clear icon ion-navicon"></button>
-  </ion-nav-buttons> 
-  <ion-content>
-     <!--
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon button-clear icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-content>
+        <!--
 'userId':user.userId,
 			'name':user.name, 
 			'department':user.department,
@@ -11,28 +11,56 @@
 			'adminOf':user.adminOf,
 			'subChannels':user.subChannels,
     -->
-    <div class="list card">
-        <ion-item class="profile-item">
-          <div class="profile-picture big-profile-picture">
-            <img src="{{user.icon}}">
-          </div>
-          <div class="text-center">
-            <h2 class="profile-name dark">{{currentUser.name}}</h2>
-            <div class="profile-info">{{currentUser.post}} {{currentUser.department}}</div>
-          </div>
-        </ion-item>
-        
-            <div class="list card light-bg" ng-click="toggleBroad()" ng-animate=" 'animate'" >
-                  <div ng-class="{active: isBroadShown()}">
-                  Update Password</div>
-                  <div ng-show="isBroadShown()" style="white-space: pre-wrap;"  class="item item-text-wrap item-accordion">
-                  New Password</div>
-          </div>
-        <ion-item class="profile-item">
-          <button class="button button-block button-assertive" ng-click="logIn()">
+        <div class="list card">
+            <ion-item class="profile-item">
+                <div class="profile-picture big-profile-picture">
+                    <img src="{{user.icon}}">
+                </div>
+                <div class="text-center">
+                    <h2 class="profile-name dark">{{currentUser.name}}</h2>
+                    <div class="profile-info">{{currentUser.post}} {{currentUser.department}}</div>
+                </div>
+            </ion-item>
+            <div style="display: flex; justify-content: center;">
+                <button ng-click="openModal()" class="button ion-android-lock"></i>
+            </div>
+            <ion-item class="profile-item">
+                <button class="button button-block button-assertive" ng-click="logout()">
             Logout
           </button>
-        </ion-item>
-      </div>
-  </ion-content>
+                </ion-item>
+            </div>
+
+            <script id="my-modal.html" type="text/ng-template">
+                <ion-modal-view class="light-bg">
+                    <ion-header-bar ng-click="modal.hide()" class="bar bar-header bar-positive-900">
+                        <h1 class="title" style="color:white;">Update Password</h1>
+                        <div class="buttons">
+                            <button ng-click="modal.hide()" class="button button-clear button-icon ion-android-close"></button>
+                        </div>
+                    </ion-header-bar>
+                    <ion-content class="padding">
+                        <div class="list">
+                            <label class="item item-input item-floating-label">
+                                <span class="input-label">Current Password</span>
+                                <input type="password" placeholder="Current password">
+                            </label>
+                            <label class="item item-input item-floating-label">
+                                <span class="input-label">New Password</span>
+                                <input type="password" placeholder="New Password">
+                            </label>
+                        </div>
+                        <div>
+
+
+                        </div>
+                        <div style="display: flex; justify-content: center;">
+                            <button class="button button-flat button-positive">Change</button>
+                        </div>
+                    </ion-content>
+                </ion-modal-view>
+            </script>
+
+    </ion-content>
+
 </ion-view>
